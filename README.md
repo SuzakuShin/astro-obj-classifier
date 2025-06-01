@@ -78,8 +78,6 @@ WHERE
 ---
 
 
-## Autor
-
 
 Project Organization
 ------------
