@@ -27,7 +27,7 @@ Este proyecto implementa un modelo de Machine Learning en Python con scikit-lear
 ## Origen del Dataset
 
 * **Fuente:** Sloan Digital Sky Survey
-* **Sitio oficial:** [skyserver]([https://skyserver.sdss.org/casjobs/](https://skyserver.sdss.org/dr18/en/tools/search/sql.aspx))
+* **Sitio oficial:** [https://skyserver.sdss.org/dr18/en/tools/search/sql.aspx](https://skyserver.sdss.org/dr18/en/tools/search/sql.aspx)
 * **Adquisición:** Los datos se obtuvieron mediante una consulta SQL personalizada a la base de datos pública de SDSS.
 
 ```sql
