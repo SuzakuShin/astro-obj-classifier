@@ -1,7 +1,85 @@
-astro-obj-classifier
-==============================
+# Clasificación de Objetos Astronómicos con Machine Learning
 
-"El objetivo es desarrollar un modelo de clasificación que pueda predecir la clase de un objeto astronómico en tres grandes categorías: Estrellas, Galaxias y Cuásares en función de sus características espectrales y fotométricas. El modelo debera aprende a reconocer patrones en los datos como magnitudes en distintas bandas, redshift, patrones en el Espectro de Luz, Características Fotométricas, entre otras y luego pueda predecir la clase de un nuevo objeto que no haya visto antes."
+Este proyecto implementa un modelo de Machine Learning en Python con scikit-learn para clasificar objetos astronómicos utilizando datos del sondeo SDSS. El modelo aplica preprocesamiento, reducción de dimensionalidad y clasificación supervisada, complementado con un análisis no supervisado mediante K-Means.
+
+---
+
+## Dataset
+
+* **Instancias:** Aproximadamente 10.000 objetos celestes.
+
+* **Columnas (características):**
+
+  * `objid`: identificador único del objeto
+  * `ra`, `dec`: coordenadas celestes
+  * `u`, `g`, `r`, `i`, `z`: magnitudes fotométricas en 5 bandas
+  * `redshift`: corrimiento al rojo
+  * `class`: clase del objeto (`STAR`, `GALAXY`, `QSO`)
+  * `u-g`, `g-r`, `r-i`, `i-z`: colores derivados
+
+* **Tipos de datos:**
+
+  * Números flotantes para magnitudes y redshift
+  * Categórico para la clase
+
+---
+
+## Origen del Dataset
+
+* **Fuente:** Sloan Digital Sky Survey
+* **Sitio oficial:** [https://skyserver.sdss.org/casjobs/](https://skyserver.sdss.org/casjobs/)
+* **Adquisición:** Los datos se obtuvieron mediante una consulta SQL personalizada a la base de datos pública de SDSS.
+
+```sql
+SELECT TOP 10000
+    p.objid,
+    p.ra,
+    p.dec,
+    p.u,
+    p.g,
+    p.r,
+    p.i,
+    p.z,
+    s.run,
+    s.rerun,
+    s.camcol,
+    s.specobjid,
+    s.class
+FROM
+    PhotoObj AS p
+JOIN
+    SpecObj AS s ON p.objid = s.bestobjid
+WHERE
+    s.class IN ('STAR', 'GALAXY', 'QSO')
+    AND p.u BETWEEN 0 AND 40
+    AND p.g BETWEEN 0 AND 40
+    AND p.r BETWEEN 0 AND 40
+    AND p.i BETWEEN 0 AND 40
+    AND p.z BETWEEN 0 AND 40
+```
+
+* **Preprocesamiento:**
+
+  * Se eliminó la primera fila (metadatos)
+  * Se calcularon colores fotométricos (`u-g`, `g-r`, etc.)
+  * Se normalizaron los datos con `StandardScaler`
+  * Se codificaron las clases con `LabelEncoder`
+
+---
+
+## Tecnologías utilizadas
+
+* Python 3.10+
+* Jupyter Notebook
+* Pandas, NumPy
+* Scikit-learn (Random Forest, PCA, KMeans, métricas)
+* Matplotlib, Seaborn
+
+---
+
+
+## Autor
+
 
 Project Organization
 ------------
@@ -53,5 +131,3 @@ Project Organization
 
 
 --------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
