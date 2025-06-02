@@ -23,6 +23,27 @@ Este proyecto implementa un modelo de Machine Learning en Python con scikit-lear
   * Categórico para la clase
 
 ---
+* **Diccionario de Datos:**
+  
+| **Nombre de la columna** | **Tipo de dato** | **Descripción**                                           |
+| ------------------------ | ---------------- | --------------------------------------------------------- |
+| `objid`                  | Entero / ID      | Identificador único del objeto astronómico                |
+| `ra`                     | Float64          | Ascensión recta: coordenada celeste en grados             |
+| `dec`                    | Float64          | Declinación: coordenada celeste en grados                 |
+| `u`                      | Float64          | Magnitud aparente en la banda ultravioleta `u`            |
+| `g`                      | Float64          | Magnitud aparente en la banda verde `g`                   |
+| `r`                      | Float64          | Magnitud aparente en la banda roja `r`                    |
+| `i`                      | Float64          | Magnitud aparente en la banda infrarroja cercana `i`      |
+| `z`                      | Float64          | Magnitud aparente en la banda infrarroja `z`              |
+| `redshift`               | Float64          | Corrimiento al rojo, indica distancia relativa del objeto |
+| `class`                  | Categórico       | Clase real del objeto: `STAR`, `GALAXY`, `QSO`            |
+| `u-g`                    | Float64          | Diferencia de magnitudes entre bandas `u` y `g` (color)   |
+| `g-r`                    | Float64          | Diferencia de magnitudes entre bandas `g` y `r` (color)   |
+| `r-i`                    | Float64          | Diferencia de magnitudes entre bandas `r` y `i` (color)   |
+| `i-z`                    | Float64          | Diferencia de magnitudes entre bandas `i` y `z` (color)   |
+| `kmeans_labels`          | Entero (0-2)     | Etiqueta asignada por K-Means (no supervisada)            |
+| `pca_1`, `pca_2`         | Float64          | Componentes principales del análisis PCA                  |
+
 
 ## Origen del Dataset
 
