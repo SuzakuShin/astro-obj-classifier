@@ -23,7 +23,7 @@ Este proyecto implementa un modelo de Machine Learning en Python con scikit-lear
   * Categórico para la clase
 
 ---
-* **Diccionario de Datos:**
+## Diccionario de Datos:
   
 | **Nombre de la columna** | **Tipo de dato** | **Descripción**                                           |
 | ------------------------ | ---------------- | --------------------------------------------------------- |
@@ -44,6 +44,7 @@ Este proyecto implementa un modelo de Machine Learning en Python con scikit-lear
 | `kmeans_labels`          | Entero (0-2)     | Etiqueta asignada por K-Means (no supervisada)            |
 | `pca_1`, `pca_2`         | Float64          | Componentes principales del análisis PCA                  |
 
+--
 
 ## Origen del Dataset
 
