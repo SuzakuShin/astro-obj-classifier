@@ -1,5 +1,6 @@
 # local package
 -e .
+
 # external requirements
 pandas>=1.5.0
 numpy>=1.23.0
